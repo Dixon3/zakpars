@@ -81,8 +81,35 @@ class ZakupkiXMLParser(object):
         'order':'"order"',
         'from':'"from"',
         }
+        self.TABLES_MAPPING={
+        'protocol[A-Z]{2,}[0-9]|prot[A-Z]{2,}[0-9]':'prtk',
+        'protocol':'prot',
+        #'_protocolLot':'_iprotLot',
+        'application':'app',
+        'admission':'adm',
+        'Result':'Res',
+        'Commission':'Com',
+        'Member':'Mem',
+        'Rejected':'Rej',
+        'Reason':'Reas',
+        'Participant':'Part',
+        'Condition':'Cond',
+        'evaluation':'ev',
+        'requirement':'req',
+        'Requirement':'Req',
+        'Compliance':'Comp',
+        'attributes':'attr',
+        'contract':'contr',
+        'criterion':'crit',
+        #'protocol':'prot',
+        'notification[A-Z]{2,}[0-9]?':'notf',
+        'notification':'notif',
+        'Feature':'Feat',
+        '-':'',
+        '\.':'',
+        }
 
-        self.
+
 
     def setDbConn(self,dbconn):
         '''Set DB connection'''

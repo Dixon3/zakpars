@@ -1,9 +1,9 @@
 DATABASE = {
 'default': {       
         'dbhost': 'localhost',                      # Or path to database file if using sqlite3.
-        'dbuser': 'test_dud',
-        'dbpass': 'test_dud',
-        'dbname': 'test_dud',
+        'dbuser': 'zakupki_2014',
+        'dbpass': 'zakupki_2014',
+        'dbname': 'zakupki_2014',
         'dbport': '5432',                      # Set to empty string for default.
     }
 }

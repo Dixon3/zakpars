@@ -58,7 +58,7 @@ def main():
     db_connector = DBConnector('default')   
     curr=db_connector.getCursor()
     conn=db_connector.getConn()
-    curr.execute("SELECT id,path FROM files_list where inserted=false and locked=false and pg_try_advisory_lock(tableoid::INTEGER,id) and path like '%contract%' limit 1")
+    curr.execute("SELECT id,path FROM files_list where inserted=false and locked=false and pg_try_advisory_lock(tableoid::INTEGER,id) and path like '%contract%2014%' limit 1")
     [(id,path)] = curr.fetchall()
 
     results=[]
@@ -81,7 +81,7 @@ def main():
         finally:
             curr.execute("update files_list set locked=false,inserted=true,insert_time=now() where id=%s; select pg_advisory_unlock(tableoid::INTEGER,id) from files_list where id = %s",(id,id))
             conn.commit()
-            curr.execute("SELECT id,path FROM files_list where inserted=false and locked=false and pg_try_advisory_lock(tableoid::INTEGER,id) and path like '%contract%' limit 1")
+            curr.execute("SELECT id,path FROM files_list where inserted=false and locked=false and pg_try_advisory_lock(tableoid::INTEGER,id) and path like '%contract%2014%' limit 1")
             [(id,path)] = curr.fetchall()
     print "Seems, there is no more to insert."
     print results
